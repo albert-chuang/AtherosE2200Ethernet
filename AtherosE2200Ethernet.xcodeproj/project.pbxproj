@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5B74724C236E34D000B98C65 /* libkmod.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B74724B236E34C500B98C65 /* libkmod.a */; };
+		5B74724E236E35C100B98C65 /* IOEthernetController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B74724D236E35C100B98C65 /* IOEthernetController.h */; };
 		D3B795B11ABE590400CE2796 /* hw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3258593198492CD00C05A72 /* hw.cpp */; };
 		D3B795B21ABE590400CE2796 /* AtherosE2200Ethernet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D325857B198482FF00C05A72 /* AtherosE2200Ethernet.cpp */; };
 		D3B795B51ABE590400CE2796 /* hw.h in Headers */ = {isa = PBXBuildFile; fileRef = D325858E19848CCA00C05A72 /* hw.h */; };
 		D3B795B61ABE590400CE2796 /* reg.h in Headers */ = {isa = PBXBuildFile; fileRef = D325858F19848CCA00C05A72 /* reg.h */; };
-		D3B795B81ABE590400CE2796 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3258577198482FF00C05A72 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,6 @@
 		5B74724D236E35C100B98C65 /* IOEthernetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOEthernetController.h; path = IOEthernetController.h; sourceTree = "<group>"; };
 		D3258573198482FF00C05A72 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
 		D3258576198482FF00C05A72 /* AtherosE2200Ethernet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AtherosE2200Ethernet-Info.plist"; sourceTree = "<group>"; };
-		D3258578198482FF00C05A72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D325857A198482FF00C05A72 /* AtherosE2200Ethernet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtherosE2200Ethernet.h; sourceTree = "<group>"; };
 		D325857B198482FF00C05A72 /* AtherosE2200Ethernet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AtherosE2200Ethernet.cpp; sourceTree = "<group>"; };
 		D32585831984866F00C05A72 /* linux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linux.h; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				D3258576198482FF00C05A72 /* AtherosE2200Ethernet-Info.plist */,
-				D3258577198482FF00C05A72 /* InfoPlist.strings */,
 				D3B795BF1ABE598F00CE2796 /* AtherosE2200EthernetV2-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -143,6 +141,7 @@
 		D3B795AC1ABE58CA00CE2796 /* Apple Headers */ = {
 			isa = PBXGroup;
 			children = (
+				5B74724D236E35C100B98C65 /* IOEthernetController.h */,
 				D3B795AD1ABE58DE00CE2796 /* IONetworkController.h */,
 				D3B795AE1ABE58DE00CE2796 /* IONetworkInterface.h */,
 			);
@@ -158,6 +157,7 @@
 			files = (
 				D3B795B51ABE590400CE2796 /* hw.h in Headers */,
 				D3B795B61ABE590400CE2796 /* reg.h in Headers */,
+				5B74724E236E35C100B98C65 /* IOEthernetController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3B795B81ABE590400CE2796 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,17 +241,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D3258577198482FF00C05A72 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3258578198482FF00C05A72 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D325857E198482FF00C05A72 /* Debug */ = {
