@@ -1262,7 +1262,7 @@ void AtherosE2200::freeDMADescriptors()
         bufDesc->complete();
         bufDesc->release();
         bufDesc = NULL;
-        txPhyAddr = NULL;
+        txPhyAddr = 0;
     }
     RELEASE(txMbufCursor);
     RELEASE(rxMbufCursor);
@@ -1779,7 +1779,7 @@ bool AtherosE2200::alxResetPCIe()
         goto done;
     }
 	/* clear WoL setting/status */
-	val = alxReadMem32(ALX_WOL0);
+	alxReadMem32(ALX_WOL0);
 	alxWriteMem32(ALX_WOL0, 0);
     
 	val = alxReadMem32(ALX_PDLL_TRNS1);
@@ -2255,7 +2255,7 @@ void AtherosE2200::alxConfigureBasic()
     
 	alxWriteMem32(ALX_RXQ0, val);
     
-	val = alxReadMem32(ALX_DMA);
+	alxReadMem32(ALX_DMA);
 	val = ALX_DMA_RORDER_MODE_OUT << ALX_DMA_RORDER_MODE_SHIFT | ALX_DMA_RREQ_PRI_DATA | maxPayload << ALX_DMA_RREQ_BLEN_SHIFT | ALX_DMA_WDLY_CNT_DEF << ALX_DMA_WDLY_CNT_SHIFT | ALX_DMA_RDLY_CNT_DEF << ALX_DMA_RDLY_CNT_SHIFT | (hw.dma_chnl - 1) << ALX_DMA_RCHNL_SEL_SHIFT;
 	alxWriteMem32(ALX_DMA, val);
     
@@ -2926,12 +2926,12 @@ void AtherosE2200::getInterfaceAddresses()
     ifnet_t interface = netif->getIfnet();
     ifaddr_t *addresses;
     ifaddr_t addr;
-    struct sockaddr_in addr4;
+    struct sockaddr_in addr4 = {};
     struct sockaddr_in6 addr6;
     sa_family_t family;
     u_int32_t i = 0;
     UInt32 val;
-
+    
     if (!ifnet_get_address_list(interface, &addresses)) {
         while ((addr = addresses[i++]) != NULL) {
             family = ifaddr_address_family(addr);
@@ -3027,8 +3027,7 @@ void AtherosE2200::updateStatitics()
 
 static inline u32 ether_crc(int length, unsigned char *data)
 {
-    int crc = -1;
-    
+    u32 crc = 0xffffffff;
     while(--length >= 0) {
         unsigned char current_octet = *data++;
         int bit;
