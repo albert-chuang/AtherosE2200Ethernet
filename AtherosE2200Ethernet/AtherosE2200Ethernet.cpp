@@ -875,16 +875,14 @@ IOReturn AtherosE2200::getPacketFilters(const OSSymbol *group, UInt32 *filters) 
 
 IOReturn AtherosE2200::setHardwareAddress(const IOEthernetAddress *addr)
 {
-    IOReturn result = kIOReturnSuccess;
+    IOReturn result = kIOReturnError;
     
     DebugLog("setHardwareAddress() ===>\n");
-
-    if (addr && ether_addr_equal(&addr->bytes[0], &origMacAddr.bytes[0])) {
-        alxLoadDefaultAddress();
-    } else {
+    
+    if (addr && is_valid_ether_addr(&addr->bytes[0])) {
         result = alxSetHardwareAddress(addr);
     }
-
+    
     DebugLog("setHardwareAddress() <===\n");
     
     return result;
