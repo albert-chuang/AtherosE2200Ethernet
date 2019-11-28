@@ -3062,7 +3062,8 @@ static inline UInt32 adjustIPv6Header(mbuf_t m)
     return (plen + kMinL4HdrOffsetV6);
 }
 
-#ifdef __MAC_10_15
+//#ifdef __MAC_10_15
+#ifdef 0 // it can not work if always not use it
 
 /**
  *  Ensure the symbol is not exported
